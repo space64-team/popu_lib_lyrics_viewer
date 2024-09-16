@@ -1,6 +1,6 @@
 import 'const.dart';
 import 'package:flutter/material.dart';
-import 'package:amlv/amlv.dart';
+import 'package:popu_lib_lyrics_viewer/amlv.dart';
 
 void main() async {
   runApp(const MyApp());

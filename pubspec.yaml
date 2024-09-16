@@ -1,4 +1,4 @@
-name: amlv
+name: popu_lib_lyrics_viewer
 description: Inspired by Apple Music's Lyrics Viewer, this package provides a widget that displays lyrics(srt, lrc, json) in a beautiful way.
 version: 1.0.2
 homepage: https://github.com/lhamycodes/amlv
