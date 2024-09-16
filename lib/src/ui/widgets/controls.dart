@@ -65,13 +65,18 @@ class _LyricViewerControlsState extends State<LyricViewerControls> {
       // Move to the next speed in the list
       _currentSpeedIndex = (_currentSpeedIndex + 1) % _playbackSpeeds.length;
       // Set the new playback rate
-      widget.player.setPlaybackRate(_playbackSpeeds[_currentSpeedIndex]);
     });
+    _updateSpeed();
+  }
+
+  void _updateSpeed() {
+    widget.player.setPlaybackRate(_playbackSpeeds[_currentSpeedIndex]);
   }
 
   /// Resume the audio player.
   resume() async {
     widget.player.resume();
+    _updateSpeed();
   }
 
   /// Pause the audio player.
