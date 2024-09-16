@@ -65,6 +65,7 @@ class _LyricViewerState extends State<LyricViewer> {
   int _currentLyricLine = 0;
 
   final player = AudioPlayer();
+
   bool isPlaying = false;
 
   bool get _audio => widget.lyric.audio != null;

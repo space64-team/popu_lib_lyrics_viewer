@@ -53,6 +53,22 @@ class LyricViewerControls extends StatefulWidget {
 }
 
 class _LyricViewerControlsState extends State<LyricViewerControls> {
+  static List<double> _playbackSpeeds = [0.5, 0.75, 1.0];
+  int _currentSpeedIndex = 2; // Start with normal speed (1.0)
+
+  double _getSpeed() {
+    return _playbackSpeeds[_currentSpeedIndex];
+  }
+
+  void _changeSpeed() {
+    setState(() {
+      // Move to the next speed in the list
+      _currentSpeedIndex = (_currentSpeedIndex + 1) % _playbackSpeeds.length;
+      // Set the new playback rate
+      widget.player.setPlaybackRate(_playbackSpeeds[_currentSpeedIndex]);
+    });
+  }
+
   /// Resume the audio player.
   resume() async {
     widget.player.resume();
@@ -119,6 +135,12 @@ class _LyricViewerControlsState extends State<LyricViewerControls> {
                 size: widget.iconSize,
                 color: widget.iconColor,
                 onTap: () => widget.isPlaying ? pause() : resume(),
+              ),
+              ElevatedButton(
+                child: Text(_getSpeed().toString() + 'X'),
+                onPressed: () {
+                  _changeSpeed();
+                },
               ),
               if (widget.forwardBuilder != null) ...[
                 horizontalSpace(20),
