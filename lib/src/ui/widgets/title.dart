@@ -26,7 +26,7 @@ class LyricViewerTitle extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          lyric.title ?? "Unknown",
+          lyric.title ?? "",
           style: TextStyle(
             fontSize: 18,
             color: titleColor,
