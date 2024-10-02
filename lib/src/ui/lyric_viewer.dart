@@ -85,9 +85,11 @@ class _LyricViewerState extends State<LyricViewer> {
         audioDuration = duration.inSeconds;
       });
       player.onPositionChanged.listen((time) {
-        setState(() {
-          timeProgress = time.inSeconds;
-        });
+        if (mounted) {
+          setState(() {
+            timeProgress = time.inSeconds;
+          });
+        }
         if (isPlaying) {
           int i = widget.lyric.lines.indexWhere((li) => li.time > time);
           if (i > 0) {
