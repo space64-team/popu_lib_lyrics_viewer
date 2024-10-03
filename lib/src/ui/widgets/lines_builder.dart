@@ -79,7 +79,7 @@ class LyricLinesBuilder extends StatelessWidget {
           ),
         ),
       ));
-      if (i != lines.length - 1) items.add(verticalSpace(15));
+      items.add(verticalSpace(15));
     }
     return items;
   }
