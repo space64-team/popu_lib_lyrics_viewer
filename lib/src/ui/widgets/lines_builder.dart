@@ -43,7 +43,7 @@ class LyricLinesBuilder extends StatelessWidget {
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
             colors: [Colors.transparent, Colors.white],
-            stops: [0.0, 1.0], // 50% transparent, 50% white
+            stops: [0.5, 1.0], // 50% transparent, 50% white
           ).createShader(rect);
         },
         blendMode: BlendMode.dstOut,
