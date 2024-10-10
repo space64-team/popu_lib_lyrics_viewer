@@ -115,18 +115,20 @@ class _LyricViewerState extends State<LyricViewer> {
     LyricLine line = lines[index];
     Duration duration = d ?? line.time;
     _controller.scrollToIndex(index, preferPosition: AutoScrollPosition.begin);
-    setState(() {
-      _currentLyricLine = index;
-      if (play) {
-        player.seek(duration);
-        if (player.state != PlayerState.playing) {
-          player.resume();
+    if (mounted) {
+      setState(() {
+        _currentLyricLine = index;
+        if (play) {
+          player.seek(duration);
+          if (player.state != PlayerState.playing) {
+            player.resume();
+          }
         }
-      }
-      if (widget.onLyricChanged != null) {
-        widget.onLyricChanged!(line, caller);
-      }
-    });
+        if (widget.onLyricChanged != null) {
+          widget.onLyricChanged!(line, caller);
+        }
+      });
+    }
   }
 
   _disposer() {
